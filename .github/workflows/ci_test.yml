@@ -4,6 +4,8 @@ jobs:
   run-tests:
     runs-on: ubuntu-latest
     steps:
+      - name: Install pipenv
+        run: pipx install pipenv
       - name: Setup Python
         uses: actions/setup-python@v3
         with:
@@ -11,6 +13,4 @@ jobs:
       - name: Check-out code
         uses: actions/checkout@v3
       - name: Setup environment
-        run: |
-          pipx install pipenv
-          pipenv sync --dev
+        run: pipenv sync --dev
